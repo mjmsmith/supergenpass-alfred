@@ -1,0 +1,1 @@
+SuperGenPass for Alfred
