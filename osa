@@ -1,7 +1,0 @@
-#! /usr/bin/env osascript
-
-tell application "Terminal" 
-  set input to display dialog "Master Password:" buttons {"OK"} default button 1 default answer "" with hidden answer
-  return (text returned of input)
-end tell
-
