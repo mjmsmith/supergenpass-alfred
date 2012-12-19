@@ -17,7 +17,7 @@ def get_safari_url
 end
 
 def domain_from_url url
-  url = "http://#{url}" if URI.parse(url).scheme.nil?
+  return url if URI.parse(url).scheme.nil?
   host = URI.parse(url).host.downcase
   parts = host.split(".")
 
