@@ -23,7 +23,7 @@
 	<key>escapequerysemicolons</key>
 	<false/>
 	<key>growloutput</key>
-	<true/>
+	<false/>
 	<key>growloutputsticky</key>
 	<false/>
 	<key>keyword</key>
