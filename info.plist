@@ -7,7 +7,13 @@
 	<key>category</key>
 	<string>SCRIPTS</string>
 	<key>command</key>
-	<string>ruby sgp {query}</string>
+	<string># The default generated password length is 10.
+# To use a different length, insert the option
+# --&lt;number&gt; in the command below and press Save.
+# For example:
+# ./sgp --12 {query}
+
+./sgp {query}</string>
 	<key>disabled</key>
 	<false/>
 	<key>escapedollar</key>
