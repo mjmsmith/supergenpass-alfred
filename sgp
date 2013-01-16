@@ -12,6 +12,7 @@ TLDS = ["ac.ac","com.ac","edu.ac","gov.ac","net.ac","mil.ac","org.ac","com.ae","
 def show_help
   puts "Usage: sgp [options] domain"
   puts "Options:"
+  puts "  --gui         Use AppleScript dialogs"
   puts "  --copy        Copy generated password to the clipboard"
   puts "  --show        Show generated paswword"
   puts "  --<number>    Length of password to generate"
@@ -26,14 +27,14 @@ def handle_args args
     case
     when arg.match(/^--[\d]+$/)
       options.length = arg[2..-1].to_i
-    when arg.match(/^--(copy|help|show)$/)
+    when arg.match(/^--(copy|gui|help|show)$/)
       options.send("#{arg[2..-1]}=", true)
     else
       options.url = arg
     end
   end
-  
-  options.gui = !options.copy && !options.show
+
+  options.show = true if !options.gui && !options.copy && !options.show
   options.url = get_safari_url if options.url.empty? && options.gui
   
   options
@@ -61,11 +62,12 @@ end
 
 def get_master_password domain, options
   if options.gui
+    button = options.show ? 2 : 3
      master = `
        osascript <<EOD
          tell application "Finder" 
            activate
-           display dialog "#{domain}\n\nMaster Password:" with title "SuperGenPass" buttons {"Cancel", "Show", "Copy"} default button 3 default answer "" with hidden answer
+           display dialog "#{domain}\n\nMaster Password:" with title "SuperGenPass" buttons {"Cancel", "Show", "Copy"} default button #{button} default answer "" with hidden answer
            if the button returned of result is "Copy" then
              return "copy=" & (text returned of result)
            else if the button returned of result is "Show" then

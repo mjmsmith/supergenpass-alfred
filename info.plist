@@ -11,9 +11,9 @@
 # To use a different length, insert the option
 # --&lt;number&gt; in the command below and press Save.
 # For example:
-# ./sgp --12 {query}
+# ./sgp --gui --12 {query}
 
-./sgp {query}</string>
+./sgp --gui {query}</string>
 	<key>disabled</key>
 	<false/>
 	<key>escapedollar</key>
