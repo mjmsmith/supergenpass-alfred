@@ -16,6 +16,6 @@ If no argument is supplied, the extension tries to get the current URL from Safa
 
 ### Standalone usage
 
-The ```sgp``` command can be used standalone as a command-line script.  For more information:
+The ```sgp``` script can be used standalone as a command-line script.  For more information:
 
 ```./sgp --help```
