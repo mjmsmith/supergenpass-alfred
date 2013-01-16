@@ -34,7 +34,7 @@ def handle_args args
     end
   end
 
-  options.show = true if !options.gui && !options.copy && !options.show
+  options.show = true if !options.copy && !options.show
   options.url = get_safari_url if options.url.empty? && options.gui
   
   options
@@ -79,6 +79,7 @@ def get_master_password domain, options
        EOD`[0...-1]
 
     if master.length > 0
+      options.show = options.copy = false
       options.send(master[0..4], true)
       master = master[5..-1]
     end
