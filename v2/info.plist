@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.camazotz.supergenpass-alfred</string>
+	<key>connections</key>
+	<dict>
+		<key>B4E4E873-23C6-4DF5-91CA-97E4FBEB36AA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>566FA409-7AF9-4A5F-9596-364E360DB761</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Mark Smith</string>
+	<key>description</key>
+	<string>Generate SuperGenPass password</string>
+	<key>name</key>
+	<string>SuperGenPass</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>keyword</key>
+				<string>sgp</string>
+				<key>subtext</key>
+				<string>Generate SuperGenPass password</string>
+				<key>text</key>
+				<string>sgp</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>B4E4E873-23C6-4DF5-91CA-97E4FBEB36AA</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string># The default generated password length is 10.
+# To use a different length, insert the option
+# --&lt;number&gt; in the command below and press Save.
+# For example:
+# ./sgp --gui --12 {query}
+
+./sgp --gui {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>566FA409-7AF9-4A5F-9596-364E360DB761</string>
+		</dict>
+	</array>
+	<key>uidata</key>
+	<dict>
+		<key>566FA409-7AF9-4A5F-9596-364E360DB761</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>B4E4E873-23C6-4DF5-91CA-97E4FBEB36AA</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://github.com/mjmsmith/supergenpass-alfred</string>
+</dict>
+</plist>
