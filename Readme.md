@@ -1,10 +1,8 @@
 # SuperGenPass for Alfred
 
-### Extension
+### Build extension/workflow
 
-To create the Alfred extension file:
-
-```zip SuperGenPass.alfredextension icon.png *.plist sgp```
+Run ```build``` to create the v1 .alfredextension file and the v2 .alfredworkflow file.
 
 ### URL/domain argument
 
@@ -12,7 +10,7 @@ If a URL is supplied, subdomains are stripped.
 
 If a domain is supplied, it is used exactly as specified.
 
-If no argument is supplied, the extension tries to get the current URL from Safari.
+If no argument is supplied, the URL in the active Safari tab is used.
 
 ### Standalone usage
 
