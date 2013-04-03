@@ -53,13 +53,28 @@
 				<key>escaping</key>
 				<integer>63</integer>
 				<key>script</key>
-				<string># The default generated password length is 10.
-# To use a different length, insert the option
-# --length in the command below and press Save.
-# For example:
+				<string>./sgp --gui {query}
+
+# The default behavior is to show the generated password.
+# To show and/or copy the password to the clipboard, use
+# the --show and --copy options:
+#
+# ./sgp --gui --show --copy 12 {query}
+
+# The default generated password length is 10. To specify
+# a different length, use the --length option:
+#
 # ./sgp --gui --length 12 {query}
 
-./sgp --gui {query}</string>
+# By default, it's not possible verify the master password
+# typed. If you want to verify it, generate the password for
+# the domain example.com and specify it using the --example
+# option:
+#
+# ./sgp --gui --example c5BfJam6iD {query}
+#
+# When specified, the master password you type will be
+# rejected unless it generates the same password for example.com.</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
