@@ -55,18 +55,18 @@
 				<key>script</key>
 				<string>./sgp --gui {query}
 
-# The default behavior is to show the generated password.
-# To show and/or copy the password to the clipboard, use
-# the --show and --copy options:
+# When entering the master password, the default selected
+# button is the Show button. To make Copy the selected button
+# instead, use the --copy option:
 #
-# ./sgp --gui --show --copy 12 {query}
+# ./sgp --gui --copy {query}
 
 # The default generated password length is 10. To specify
 # a different length, use the --length option:
 #
 # ./sgp --gui --length 12 {query}
 
-# By default, it's not possible verify the master password
+# By default, it's not possible to verify the master password
 # typed. If you want to verify it, generate the password for
 # the domain example.com and specify it using the --example
 # option:
