@@ -1,4 +1,4 @@
 #! /bin/sh
 
-zip -j SuperGenPass.alfredextension v1/* sgp 
-zip -j SuperGenPass.alfredworkflow v2/* sgp
+zip -j SuperGenPass.alfredextension v1/* sgp icon.png
+zip -j SuperGenPass.alfredworkflow v2/* sgp icon.png
