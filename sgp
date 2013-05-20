@@ -82,17 +82,18 @@ def get_master_password domain, options
     button = options.show ? 2 : 3
      master = `
        osascript <<EOD
-         tell application "Finder" 
+         tell application "System Events" 
            activate
            display dialog "#{domain}\n\nMaster Password:" with title "SuperGenPass" buttons {"Cancel", "Show", "Copy"} default button #{button} default answer "" with hidden answer
            if the button returned of result is "Copy" then
-             return "copy=" & (text returned of result)
+             set ret to "copy=" & (text returned of result)
            else if the button returned of result is "Show" then
-             return "show=" & (text returned of result)
+             set ret to "show=" & (text returned of result)
            else
-             return ""
+             set ret to ""
            end if
          end tell
+         return ret
        EOD`[0...-1]
 
     if master.length > 0
@@ -144,12 +145,12 @@ end
 def show_password password, domain, gui
   if gui
    `osascript <<EOD
-      tell application "Finder"
+      tell application "System Events"
         activate
         display dialog "#{domain}" with title "SuperGenPass" buttons {"OK"} default button 1 default answer "#{password}"
-        return ""
       end tell
-    EOD`[0...-1]
+      return ""
+    EOD`
   else
     puts password
   end
@@ -157,6 +158,17 @@ end
 
 def copy_password password
   `/bin/echo -n #{password} | pbcopy`
+end
+
+def reactivate_app
+ `osascript <<EOD
+    tell application "System Events"
+      set frontApp to name of the first process whose frontmost is true
+    end tell
+    tell application frontApp
+      activate
+    end tell
+  EOD`
 end
 
 # main begins here.
@@ -184,5 +196,7 @@ password = generate_password(master, domain, options.length)
 
 copy_password(password) if options.copy
 show_password(password, domain, options.gui) if options.show
+
+reactivate_app if options.gui
 
 exit
